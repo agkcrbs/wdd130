@@ -1,34 +1,106 @@
 body {
-  text-align: center;
+  /*text-align: center;*/
+  /*margin: 1%; /*8px default*/
 }
 nav {
   background-color: steelblue;
-  padding: 10px;
+  padding: 5px 10px;
+  text-align: center;
+  position: fixed; /*as test*/
+  left: 1%; /*as test*/
+  width: 96%; /*as test*/
+  display: flex; /*no longer centered*/
+  flex-wrap: wrap;
+  flex-direction: column;
+  z-index: 1;
 }
 a {
+  font-size: 1.4em; /*same as 140%*/
+  margin: 5px 5px;
+  padding: 10px;
   color: white;
-  margin: 20px;
-  padding: 20px;
+  background-color: lightblue;
+  border-radius: 5px;
 }
-h1 {
+a:hover {
+  background-color: white;
   color: steelblue;
 }
-img {
-  width: 800px;
-  border: 4px solid steelblue;
+
+span {
+  background-color: steelblue;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.5em;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  background-color: lightblue;
 }
+
+h1 {
+  color: steelblue;
+  text-align: center;
+  margin: 50px 0; /*can do %*/
+  position: relative; /* fix these two... */
+  top: 25px; /**/
+  z-index: 0; /*without these... nav goes transparent with h1 behind it*/
+}
+h2 {
+  height: 230px; /* use 10px if not flex-direction: column */
+}
+img {
+  width: 80%; /*800px*/
+  border: 4px solid steelblue;
+  padding: 1%; /*as test*/
+  margin: 0% auto; /*as test*/
+  background-color:  yellow; /*as test*/
+  display: block; /*added because body centering was removed*/
+  border-radius: 10px;
+}
+
 p {
+  width: 80%;
   padding: 10px;
 }
+
+main p { /*this overlaps with the above...*/
+  width: 80%;
+  /*margin: 1% auto; -- duplicated in main-para*/
+  /*text-align: center;*/
+}
+
 footer {
   background-color: steelblue;
   color: white;
+  margin: 2%; /*as test*/
+  padding: 1%;
+}
+footer p {
+  text-align: center;
+  width: 90%; /*as test*/
+  margin: 1% auto; /*as test*/
+  font-size: 120%;
+  padding: 1%;
 }
 .main-para {
+  border: 4px solid; /*as test*/
   font-size: 1.5em;
   line-height: 1.5em;
+  margin: 1% auto;
+  padding: 2%;
 }
 #active {
   background-color: white;
   color: steelblue;
 }
+
+* {
+  border: 1px solid blue; /* delete later */
+}
+
+/*nav, footer {
+  background-color: steelblue;
+  color: white;
+  padding: 10px;
+} -- all duplicated*/
