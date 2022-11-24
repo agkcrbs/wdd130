@@ -12,7 +12,10 @@ nav {
   display: flex; /*no longer centered*/
   flex-wrap: wrap;
   flex-direction: column;
-  z-index: 1;
+  z-index: 2;
+}
+nav a:hover {
+  transform:rotateY(180deg);
 }
 a {
   font-size: 1.4em; /*same as 140%*/
@@ -49,6 +52,9 @@ h1 {
 h2 {
   height: 230px; /* use 10px if not flex-direction: column */
 }
+.banner-div {
+  justify-content: center;
+}
 img {
   width: 80%; /*800px*/
   border: 4px solid steelblue;
@@ -57,8 +63,30 @@ img {
   background-color:  yellow; /*as test*/
   display: block; /*added because body centering was removed*/
   border-radius: 10px;
+  transform-style:preserve-3d;
+  transition: transform 1s ease-in-out; /*0.5s, step-end / step-start*/
 }
-
+.img-front {
+  transform:rotateY(0);
+	z-index: 1;
+  position: absolute;
+}
+.img-front:hover {
+  transform:rotateY(180deg);
+}
+.img-front:hover .img-back {
+  transform:rotateY(180deg);
+  z-index: 2;
+}
+.img-back {
+  transform:rotateY(0);
+	z-index: 0;
+  position: absolute;
+}
+.img-back:hover {
+  transform:rotateY(180deg);
+  z-index: 1;
+}
 p {
   width: 80%;
   padding: 10px;
@@ -104,3 +132,73 @@ footer p {
   color: white;
   padding: 10px;
 } -- all duplicated*/
+
+
+
+
+
+/*
+  
+wpb_wrapper
+ ***->	vc-hoverbox-wrapper  vc-hoverbox-shape--square vc-hoverbox-align--center vc-hoverbox-direction--default vc-hoverbox-width-100
+		vc-hoverbox <-***
+			vc-hoverbox-inner
+				vc-hoverbox-block vc-hoverbox-back
+					vc-hoverbox-block-inner vc-hoverbox-back-inner
+
+
+
+.vc-hoverbox-wrapper .vc-hoverbox {
+	position:relative;
+	display:inline-block;
+	text-align:center;
+	width:100%
+}
+.vc-hoverbox-block {
+	height:100%;
+	width:100%;
+	-webkit-backface-visibility:hidden;
+	backface-visibility:hidden;
+	position:absolute;
+	top:0;left:0;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	transition:transform .5s ease-in-out;
+	transform-style:preserve-3d;
+	background-size:cover;
+	background-position:center
+}
+.vc-hoverbox-block-inner {
+	flex-shrink:0;padding:20px
+}
+.vc-hoverbox-block-inner>* {
+	backface-visibility:hidden
+}
+.vc-hoverbox-front {
+	transform:rotateY(0);
+	z-index:1
+}
+.vc-hoverbox-back {
+	transform:rotateY(180deg)
+}
+.vc-hoverbox:hover .vc-hoverbox-front {
+	transform:rotateY(-180deg)
+}
+.vc-hoverbox:hover .vc-hoverbox-back {
+	transform:rotateY(0)
+}
+.vc-hoverbox-wrapper.vc-hoverbox-direction--reverse .vc-hoverbox-front {
+	transform:rotateY(180deg)
+}
+.vc-hoverbox-wrapper.vc-hoverbox-direction--reverse .vc-hoverbox-back {
+	transform:rotateY(0);
+	z-index:2
+}
+.vc-hoverbox-wrapper.vc-hoverbox-direction--reverse .vc-hoverbox:hover .vc-hoverbox-front {
+	transform:rotateY(0)
+}
+.vc-hoverbox-wrapper.vc-hoverbox-direction--reverse .vc-hoverbox:hover .vc-hoverbox-back {
+	transform:rotateY(-180deg)
+}
+*/
